@@ -26,7 +26,7 @@ const setBlocks = function (symbols, numOfBlocks) {
 const gameSetUp = function (playerName, numOfBlocks, symbols) {
   const data = {
     board: setBlocks(symbols, numOfBlocks),
-    player: { name: playerName, score: 0 },
+    player: { name: playerName, score: 0, attempts: 0 },
     lastMove: null,
     isGameOver: false
   };

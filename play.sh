@@ -8,6 +8,7 @@ while [[ $gameStatus ]]
 do
     read -p "Enter your pick: " pickOfPlayer
     node memoryBlocks.js $pickOfPlayer
+    open index.html
     
     gameStatus=$( cat resources/data.json | grep "isGameOver" | grep "false" )
 done
