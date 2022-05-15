@@ -39,3 +39,11 @@ body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-transform: capitalize;
 }
+
+h2 {
+  margin-top: 30px;
+  font-family: fantasy;
+  color: F4ABC4;
+  font-weight: 100;
+  text-align: center;
+}

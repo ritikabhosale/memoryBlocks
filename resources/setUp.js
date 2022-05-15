@@ -40,4 +40,4 @@ const symbols = [
   '&#9775', '&#9752'
 ];
 
-gameSetUp(process.argv[2], 16, symbols);
+gameSetUp(process.argv[2], 4, symbols);

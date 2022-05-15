@@ -12,3 +12,6 @@ do
     
     gameStatus=$( cat resources/data.json | grep "isGameOver" | grep "false" )
 done
+
+open index.html
+rm -r resources/data.json
