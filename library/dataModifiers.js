@@ -1,4 +1,3 @@
-const fs = require('fs');
 const { isSymbolMatching, isRevealed, getBlock } = require('./helpers.js');
 
 const setVisibility = function (data, position, visibility) {

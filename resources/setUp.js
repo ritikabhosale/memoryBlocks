@@ -1,11 +1,16 @@
 const fs = require('fs');
 const stringify = JSON.stringify;
+const randomInt = limit => Math.floor(Math.random() * limit);
 
 const duplicate = arr => arr.concat(arr);
 
 const writeToFile = (file, content) => fs.writeFileSync(file, content, 'utf8');
 
 const shuffle = function (arr) {
+  for (let index = 0; index < arr.length; index++) {
+    const elementToMove = arr.splice(randomInt(arr.length), 1);
+    arr.unshift(...elementToMove);
+  }
   return arr;
 };
 
@@ -40,4 +45,4 @@ const symbols = [
   '&#9775', '&#9752'
 ];
 
-gameSetUp(process.argv[2], 4, symbols);
+gameSetUp(process.argv[2], 16, symbols);

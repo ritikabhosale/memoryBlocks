@@ -1,9 +1,5 @@
-const fs = require('fs');
 const { setVisibility, updateGameData, updateGameStatus } = require('./dataModifiers.js');
-const { readFile, writeFile, isRevealed } = require('./helpers.js');
-
-const parse = JSON.parse;
-const stringify = JSON.stringify;
+const { readFile, writeFile, isRevealed, writeJson, readJson } = require('./helpers.js');
 
 const generateTag = function (tag, content, property) {
   let style = '';
@@ -28,11 +24,11 @@ const generateWebpage = function ({ board }, templateAsString, message) {
 };
 
 const getMessage = function ({ player: { name, score } }) {
-  return 'HEYYY' + name + '. CONGRATS!!! Your score is ' + score;
+  return 'Heyyy  ' + name + '. CONGRATS!!! Your score is ' + score;
 };
 
 const main = function (position, dataFile, template) {
-  let data = parse(readFile(dataFile));
+  let data = readJson(dataFile);
   const templateAsString = readFile(template);
   let message = '';
 
@@ -42,7 +38,7 @@ const main = function (position, dataFile, template) {
 
   data = updateGameData(data, position);
   data = updateGameStatus(data);
-  writeFile('./resources/data.json', stringify(data));
+  writeJson('./resources/data.json', data);
 
   if (data.isGameOver === true) {
     message = getMessage(data);
